@@ -5,6 +5,9 @@ import PageContainer from "../containers/PageContainer"
 import Counter from "../general/Counter"
 import { useState } from "react"
 import { Button, Rating } from "@mui/material"
+import Comment from "./Comment"
+import Heading from "../general/Heading"
+
 
 export type CardProductProps ={
   id:   string
@@ -65,6 +68,14 @@ const DetailClient = ({product}:{product:any}) => {
 
       </div>
       </div> 
+    </div>
+    <Heading text="Yorumlar"/>
+    <div>
+      {
+        product?.reviews.map((prd:any) =>(
+        <Comment key={prd.id} prd={prd}/>
+        ))
+      }
     </div>
      </PageContainer>
     </div>
